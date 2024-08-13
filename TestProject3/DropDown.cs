@@ -1,9 +1,5 @@
-using OpenQA.Selenium.Chrome;
-using OpenQA.Selenium;
-using OpenQA.Selenium.Support.UI;
 using System.Collections.ObjectModel;
-using static System.Net.Mime.MediaTypeNames;
-using System.Xml.Linq;
+using System.Security.Cryptography.X509Certificates;
 
 namespace TestProject3
 {
@@ -22,7 +18,7 @@ namespace TestProject3
             chromeOptions.AddArguments("disable-dev-shm-usage");
             chromeOptions.AddArguments("disable-gpu");
             chromeOptions.AddArguments("window-size=1920x1080");
-            chromeOptions.AddArguments("disable-extension");
+            chromeOptions.AddArguments("disable-extensions");
             chromeOptions.AddArguments("remote-debugging-port=9222");
 
             chromeOptions.AddUserProfilePreference("profile.password_manager_enabled", false);
@@ -95,7 +91,12 @@ namespace TestProject3
             }
 
             // Quit the driver
-            driver.Quit();
+            [TearDown]
+            public void TearDown()
+            {
+                driver.Quit();
+                driver.Dispose();
+            }            
         }
     }
 }

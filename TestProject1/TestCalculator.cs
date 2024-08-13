@@ -26,7 +26,7 @@ namespace TestProject1
             chromeOptions.AddArguments("disable-dev-shm-usage");
             chromeOptions.AddArguments("disable-gpu");
             chromeOptions.AddArguments("window-size=1920x1080");
-            chromeOptions.AddArguments("disable-extension");
+            chromeOptions.AddArguments("disable-extensions");
             chromeOptions.AddArguments("remote-debugging-port=9222");
 
             chromeOptions.AddUserProfilePreference("profile.password_manager_enabled", false);
@@ -44,10 +44,11 @@ namespace TestProject1
             divResult = driver.FindElement(By.Id("result"));
         }
 
-        [OneTimeTearDown]
+        [TearDown]
         public void TearDown()
         {
             driver.Quit();
+            driver.Dispose();
         }
 
         public void PerformCalculation(string firstNumber, string operation,
