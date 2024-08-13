@@ -1,5 +1,7 @@
 using System.Collections.ObjectModel;
-using System.Security.Cryptography.X509Certificates;
+using OpenQA.Selenium.Chrome;
+using OpenQA.Selenium;
+using OpenQA.Selenium.Support.UI;
 
 namespace TestProject3
 {
@@ -91,12 +93,7 @@ namespace TestProject3
             }
 
             // Quit the driver
-            [TearDown]
-            public void TearDown()
-            {
-                driver.Quit();
-                driver.Dispose();
-            }            
+            driver.Quit();
         }
     }
 }

@@ -75,13 +75,8 @@ namespace TestProject2
         [TearDown]
         public void TearDown()
         {
-            // Quit the driver
-            [TearDown]
-            public void TearDown()
-            {
-                driver.Quit();
-                driver.Dispose();
-            }
+            driver.Quit();
+            driver.Dispose();
         }
     }
 }

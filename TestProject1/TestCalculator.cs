@@ -1,8 +1,6 @@
 using OpenQA.Selenium;
 using OpenQA.Selenium.Chrome;
 using OpenQA.Selenium.Support.UI;
-using NUnit.Framework;
-using System;
 
 namespace TestProject1
 {
@@ -44,11 +42,10 @@ namespace TestProject1
             divResult = driver.FindElement(By.Id("result"));
         }
 
-        [TearDown]
+        [OneTimeTearDown]
         public void TearDown()
         {
             driver.Quit();
-            driver.Dispose();
         }
 
         public void PerformCalculation(string firstNumber, string operation,
